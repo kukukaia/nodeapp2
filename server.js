@@ -5,10 +5,15 @@ const app = express()
 
 //Configurações
 
+//importar router
+const indexRouter= require('./routes/indexRouter')
+
+
 //Configurar rota
-app.get('/',(req, res)=>{
-    res.end("Primeira página")
-})
+app.use('/', indexRouter)
+//app.get('/',(req, res)=>{
+//    res.end("Primeira página")
+//})
 
 //Inicializar o serviço
 app.listen(3005)

@@ -7,11 +7,13 @@ router.use('/produtos', produtosRouter)
 
 //modulos de rotas
 router.get('/',(req,res)=>{
-    res.end("Index")
+    //res.end("Index")
+    res.render('index')
 })
 
 router.get('/produtos',(req,res)=>{
-    res.end("Página de produtos")
+    //res.end("Página de produtos")
+    res.render('produtos')
 })
 
 router.get('/servicos',(req,res)=>{

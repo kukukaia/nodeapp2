@@ -15,6 +15,11 @@ router.get('/sapatos', (req,res)=>{
     res.end("Pagina de sapatos")
 })
 
+router.get('/sapatos/:id', (req,res)=>{
+    res.send(req.params.id)
+    res.end("Pagina de sapatos")
+})
+
 router.get('/bolsas', (req,res)=>{
     res.end("Pagina de bolsas")
 })

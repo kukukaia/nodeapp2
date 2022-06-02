@@ -4,7 +4,6 @@ if(process.env.NODE_ENV !=='production'){
 }
 
 //importar os modulos
-
 const express =  require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
@@ -13,18 +12,21 @@ const expressLayouts = require('express-ejs-layouts')
 
 //pra fazer o express trabalhar com esses arquivos que estao dentro de public
 app.use(express.static('public'))
-app.use('/css',express.static(__dirname + 'public/css'))
-app.use('/img',express.static(__dirname + 'public/img'))
-app.use('/js',express.static(__dirname + 'public/js'))
+app.use('/css', express.static(__dirname + 'public/css'))
+app.use('/img', express.static(__dirname + 'public/img'))
+app.use('/js', express.static(__dirname + 'public/js'))
 
 //configurar view engine
 app.set('view engine', 'ejs')
-app.set('view', __dirname+'/views')
+app.set('views', __dirname+'/views')
 app.set('layout','layouts/layout') // esse não é essencial, é só pra alterar a localização de layout.ejs
 app.use(expressLayouts)
 
-//importar router
+//Parse de dados html
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
+//importar router
 const indexRouter= require('./routes/indexRouter')
 
 

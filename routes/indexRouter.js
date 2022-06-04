@@ -42,6 +42,7 @@ router.post('/imc', (req, res)=>{
     //res.end("Pagina de IMC")Se tiver só isso, quando manda a requisição pela página do html, ele retorna somente"Página de IMC"
     //Para retornar os dados preenchidos no formulário do html, fazemos da //seguinte forma:
     let imc=req.body.peso/(req.body.altura*req.body.altura)
+    //tem como repassar esses valores dentro da view
     //res.end("O IMC calculado é:  "+imc)
     res.render('imc/resultado',{'resultado':imc})  
 })

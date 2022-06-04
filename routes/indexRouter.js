@@ -28,6 +28,7 @@ router.get('/contato',(req,res)=>{
 router.post('/contato', (req, res)=>{
     //res.end("Pagina de CONTATO")
     let dados = JSON.stringify(req.body)
+    //converte o objeto json em string
     //res.end(dados)
     res.end(dados)
 })
@@ -37,11 +38,14 @@ router.patch('/contato', (req, res)=>{
 })
 
 router.post('/imc', (req, res)=>{
+    //inicialmente:
+    //res.end("Pagina de IMC")Se tiver só isso, quando manda a requisição pela página do html, ele retorna somente"Página de IMC"
+    //Para retornar os dados preenchidos no formulário do html, fazemos da //seguinte forma:
     let imc=req.body.peso/(req.body.altura*req.body.altura)
     //res.end("O IMC calculado é:  "+imc)
     res.render('imc/resultado',{'resultado':imc})  
 })
-
+//nao pode ter duas get ou duas post. Tem que ser um só de cada
 router.get('/imc', (req, res)=>{
     res.render('imc/formulario')    
 })
